@@ -2,46 +2,45 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public int totalOfAllSales(int[] sales) {
-        int sumSales = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sumSales += sales[i];
+    public long totalOfAllSales(long[] sales) {
+        long sumSales = 0;
+        for (long i = 0; i < sales.length; i++) {
+            sumSales += sales[(int) i];
         }
         return sumSales;
     }
 
-    public int averageMonthSales(int[] sales) {
-        int averSalesMonth = totalOfAllSales(sales) / sales.length;
-        return averSalesMonth;
+    public int averageMonthSales(long[] sales) {
+        long averSalesMonth = totalOfAllSales(sales) / sales.length;
+        return (int) averSalesMonth;
     }
 
-    public int maxMonthSales(int[] sales) {
+    public int maxMonthSales(long[] sales) {
 
         int maxMonth = 0;
 
         for (int i = 0; i < sales.length; i++) {
 
-            if (sales[i] > sales[maxMonth]) {
+            if (sales[i] >= sales[maxMonth]) {
                 maxMonth = i;
             }
-
         }
         return maxMonth;
     }
 
-    public int minMonthSales(int[] sales) {
+    public int minMonthSales(long[] sales) {
 
         int minMonth = 0;
 
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < sales[minMonth]) {
+            if (sales[i] <= sales[minMonth]) {
                 minMonth = i;
             }
         }
         return minMonth;
     }
 
-    public int amountMonthSalesBelowAverage(int[] sales) {
+    public int amountMonthSalesBelowAverage(long[] sales) {
         int count = 0;
         for (int i = 0; i < sales.length; i++) {
 
@@ -52,7 +51,7 @@ public class StatsService {
         return count;
     }
 
-    public int amountMonthSalesAboveAverage(int[] sales) {
+    public int amountMonthSalesAboveAverage(long[] sales) {
         int count = 0;
         for (int i = 0; i < sales.length; i++) {
 
@@ -62,6 +61,4 @@ public class StatsService {
         }
         return count;
     }
-
-
 }
